@@ -51,14 +51,14 @@ Kr = 1/((Sij[0,0] + Sij[1,1] + Sij[2,2]) + 2 * (Sij[0,1] + Sij[1,2] + Sij[0,2]))
 # #----Voigt-Reuss-Hill bulk modulus
 Kvrh = (Kv+Kr)/2
 
-#----Voigt shear modulus Gv (GPa)  #15Gv = (c11 + c22 + c33) − (c12 + c23 + c13 ) + 3(c44 + c55 + c66)
+#----Voigt shear modulus Gv(GPa)  #15Gv = (c11 + c22 + c33) − (c12 + c23 + c13 ) + 3(c44 + c55 + c66)
 # NOTE: vasp generate XX YY ZZ	XY	YZ	ZX
 #                   = 00 11 22  33  44  55
 # while it should be  XX YY	ZZ	YZ	ZX	XY
 #                   = 00 11 22  33  44  55
 Gv = ((Cij[0,0] + Cij[1,1] + Cij[2,2]) - (4*(Cij[0,1] + Cij[1,2] + Cij[0,2])) + (3*(Cij[4,4] + Cij[5,5] + Cij[3,3]))/15)
 
-#----Reuss shear modulus Gv (GPa) #15/Gr = = 4(s11 + s22 + s33) − 4(s12 + s23 + s13 ) + 3(s44 + s55 + s66).
+#----Reuss shear modulus Gr(GPa) #15/Gr = = 4(s11 + s22 + s33) − 4(s12 + s23 + s13 ) + 3(s44 + s55 + s66).
 Gr = 15/(4*(Sij[0,0] + Sij[1,1] + Sij[2,2]) - (4*(Sij[0,1] + Sij[1,2] + Sij[0,2])) + (3*(Sij[4,4] + Sij[5,5] + Sij[3,3])))
 
 #----Voigt-Reuss-Hill shear modulus 
